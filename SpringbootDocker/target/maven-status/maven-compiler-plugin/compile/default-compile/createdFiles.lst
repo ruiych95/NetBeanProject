@@ -1,0 +1,5 @@
+springbootdocker\service\AppService.class
+springbootdocker\model\GetMessageRequest.class
+springbootdocker\model\AppModel.class
+springbootdocker\SpringbootDockerApplication.class
+springbootdocker\controller\AppController.class

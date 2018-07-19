@@ -1,0 +1,35 @@
+version: '3'
+services:
+  nginx-lb:
+    container_name: NGINX
+    build:
+      context: .
+      dockerfile: Dockerfile_nginx #nginxDockerFile
+    ports:
+     - "80:80"
+    restart: always 
+    deploy:
+     mode: replicated
+     replicas: 6
+
+     #resources:
+       #limits:
+       #cpus: ''
+       #memory: 
+     #reservations:
+       #cpus: ''
+       #memory: 
+
+    links:
+     - springboot1 #appXServiceName
+    depends_on:
+     - springboot1 #appXServiceName
+
+  springboot1:
+    container_name: APPX
+    build:
+      context: .
+      dockerfile: Dockerfile_app #appXDockerFile
+    ports:
+     - "8080"
+    #restart: always
